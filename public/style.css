@@ -1,0 +1,348 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#name_box {
+    background-color: #242424;
+    height: 60px;
+    color: white;
+    position: fixed;
+    top: -60px;
+    left: 0;
+    right: 0;
+    z-index: 2147483645;
+}
+
+#name_box div:not(:first-child), #name_box img {
+    opacity: 0;
+}
+
+#name {
+    text-align: right;
+    margin: 0;
+    top: 50%;
+    right: 150px;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    position: absolute;
+}
+
+
+#online_count {
+    text-align: center;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    right: -50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    color: #666666;
+}
+
+#name:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#prof_pic {
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    border-radius: 20px;
+    right: 90px;
+    position: absolute;
+    top: 10px;
+}
+
+#spotify_logo {
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    border-radius: 20px;
+    left: 90px;
+    position: absolute;
+    top: 10px;
+}
+
+#spotify_party_text {
+    text-align: left;
+    margin: 0;
+    top: 50%;
+    left: 150px;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    position: absolute;
+    font-size: 24px;
+}
+
+#message_container {
+    position: fixed;
+    bottom: -60px;
+    width: 100%;
+    height: 60px;
+    background-color: black;
+    z-index: 2147483645;
+}
+
+#message_input {
+    text-align: left;
+    margin: 0;
+    top: 50%;
+    left: 90px;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    position: absolute;
+    height: 24px;
+    width: 270px;
+    border-radius: 17px;
+    outline: red;
+    background-color: #171717;
+    border: 0 solid #242424;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: white;
+}
+
+#message_input_back {
+    text-align: left;
+    margin: 0;
+    top: 50%;
+    left: 90px;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    position: absolute;
+    height: 24px;
+    width: 270px;
+    border-radius: 17px;
+    outline: red;
+    background-color: #171717;
+    border: 0 solid #242424;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: white;
+    z-index: -1;
+}
+
+#send_message_btn {
+    text-align: left;
+    border: 0 solid #242424;
+    margin: 0;
+    top: 50%;
+    left: 420px;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    position: absolute;
+    height: 30px;
+    border-radius: 17px;
+    background-color: #171717;
+    color: white;
+    width: 80px;
+    text-align: center;
+}
+
+#send_message_btn:hover {
+    cursor: pointer;
+}
+
+.chat {
+    margin-left: 90px;
+    background-color: #323232;
+    color: white;
+    width: 410px;
+    display: flex;
+    /* opacity: 0; */
+    margin-top: -60px;
+    position: relative;
+}
+
+.chat_pic {
+    height: 35px;
+    width: 35px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.chat_name {
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    /* margin-top: 10px;
+    margin-left: 10px; */
+}
+
+.chat_text {
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    /* margin-left: 10px;
+    margin-right: 20px; */
+}
+
+.chat_details {
+    flex-grow: 1;
+    padding: 10px
+}
+
+#info_box {
+    margin-bottom: 60px;
+    margin-top: -60px;
+}
+
+#typing_container {
+    position: fixed;
+    bottom: 70px;
+    width: auto;
+    height: 20px;
+    background-color: #000000CC;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 100px;
+    border-radius: 15px;
+    z-index: 2147483645;
+}
+
+#name_pick {
+    position: fixed;
+    height: 60px;
+    width: 150px;
+    background-image: url("img/name-pick.png");
+    top: 20px;
+    opacity: 0;
+    right: 90px;
+}
+
+#name_pick_input {
+    width: 120px;
+    height: 24px;
+    border-radius: 6px;
+    bottom: 9px;
+    position: absolute;
+    border: 0;
+    left: 10px;
+    background-color: #242424;
+    padding-left: 5px;
+    color: white;
+    padding-right: 5px;
+}
+
+*:focus {
+    outline: none;
+}
+
+#chatroom_input {
+    width: 120px;
+    height: 24px;
+    border-radius: 6px;
+    position: absolute;
+    background: black;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    border-radius: 6px;
+    color: white;
+    padding: 10px;
+    background-color: #242424;
+    padding-left: 15px;
+    color: white;
+    padding-right: 15px;
+    z-index: 2147483647;
+    opacity: 0;
+}
+
+#block {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 2147483646;
+}
+
+#player_container {
+    position: fixed;
+    width: 50%;
+    height: 100%;
+    right: 90px;
+    top: 60px;
+    bottom: 60px;
+    display: none;
+}
+
+#player_album_cover {
+    margin-right: auto;
+    margin-left: auto;
+    width: 30%;
+    border-radius: 5px;
+    display: block;
+    margin-top: 60px;
+}
+
+#player_song_title {
+    margin-right: auto;
+    margin-left: auto;
+    width: 50%;
+    display: block;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+#player_song_artist {
+    margin-right: auto;
+    margin-left: auto;
+    width: 50%;
+    display: block;
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+}
+
+#player_control_container {
+    margin-right: auto;
+    margin-left: auto;
+    width: 200px;
+    display: block;
+    text-align: center;
+    color: white;
+    /* background-color: white; */
+    margin-top: 30px;
+    height: 40px;
+}
+
+#btn_prev {
+    background-image: url("img/btn_previous.svg");
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+    margin-right: 30px;
+}
+
+#btn_next {
+    background-image: url("img/btn_next.svg");
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+    margin-left: 30px;
+}
+
+#btn_play_pause {
+    background-image: url("img/btn_play.svg");
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+}

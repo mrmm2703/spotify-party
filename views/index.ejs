@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Spotify Party</title>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165349897-1"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-165349897-1');
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+        <script src="https://fourone.ddns.net:3000/jquery.js"></script>
+        <script
+        src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+        crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="https://fourone.ddns.net:3000/style.css">
+    </head>
+    <body>
+        <script src="https://sdk.scdn.co/spotify-player.js"></script>
+        <script>
+
+            window.onSpotifyWebPlaybackSDKReady = () => {
+                const token = window.location.hash.substr(14, window.location.hash.indexOf("&")-14)
+                window.player = new Spotify.Player({
+                    name: "Spotify Party",
+                    getOAuthToken: cb => { cb(token); }
+                })
+
+                // Error handling
+                window.player.addListener('initialization_error', ({ message }) => { console.error(message) })
+                window.player.addListener('authentication_error', ({ message }) => {
+                    console.error(message)
+                    // window.location.replace("https://accounts.spotify.com/authorize?client_id=d7bc09b9fc624ecfb3345d126c96f61f&redirect_uri=https:%2F%2Ffourone.ddns.net:3000&response_type=token&scope=streaming%20user-read-email%20user-modify-playback-state%20user-read-private&show_dialog=true")
+                })
+                window.player.addListener('account_error', ({ message }) => { console.error(message) })
+                window.player.addListener('playback_error', ({ message }) => { console.error(message) })
+
+                window.player.addListener("player_state_changed", state => {
+                    console.log(state)
+                    socket.emit("state", {
+                        paused: state.paused,
+                        position: state.position,
+                        track: state.track_window.current_track.id,
+                        track_title: state.track_window.current_track.name,
+                        track_uri: state.track_window.current_track.uri
+                    })
+                })
+                window.player.addListener("ready", ({ device_id }) => {
+                    console.log("Ready with Device ID", device_id)
+                    // alert("Ready!")
+                })
+                window.player.addListener("not_ready", ({ device_id }) => {
+                    console.log("Device ID has gone offline", device_id)
+                    alert("Spotify Party has been disconnected from Spotify! Please reconnect")
+                })
+
+                window.player.connect()
+            }
+        </script>
+
+        <div id="block"></div>
+        
+        <div id="player_container">
+            <img id="player_album_cover" src="https://images.genius.com/f4136fc6863d8423de6d253044d44835.1000x1000x1.jpg">
+            <div id="player_song_title">If You're Too Shy (Let Me Know)</div>
+            <div id="player_song_artist">The 1975</div>
+            <div id="player_control_container">
+                <div id="btn_prev"></div>
+                <div id="btn_play_pause"></div>
+                <div id="btn_next"></div>
+            </div>
+        </div>
+        
+        <section id="name_box">
+            <!-- <div id="name">Mo</div>
+            <img id="prof_pic" src="https://profile-images.scdn.co/images/userprofile/default/1b3fcfea74269dd0a95aedca2cd3d44fa28302f7"/>
+            <img id="spotify_logo" src="img/spotify-logo.png"/>
+            <div id="spotify_party_text">Spotify Party</div>     -->
+            <div id="name_pick">
+                <input id="name_pick_input" type="text" placeholder="Enter name">
+            </div>
+            <div id="online_count">
+                
+            </div>
+        </section>
+
+        <div id="message_container">
+            <input id="message_input" type="text" placeholder="Enter message">
+            <input id="message_input_back" type="text" readonly>
+            <button id="send_message_btn" type="button">SEND</button>
+        </div>
+
+        <div id="typing_container"></div>
+
+        <section id="info_box"></section>        
+        
+        <input id="chatroom_input" type="text" placeholder="Party code">
+        
+        <script src="chat.js"></script>
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+        <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCb3wxfOKADu9BPSNt3jptNxVFwz-GapJ8",
+            authDomain: "spotifyparty-30831.firebaseapp.com",
+            databaseURL: "https://spotifyparty-30831.firebaseio.com",
+            projectId: "spotifyparty-30831",
+            storageBucket: "spotifyparty-30831.appspot.com",
+            messagingSenderId: "114028148183",
+            appId: "1:114028148183:web:1a9aa4affadef541ac0792",
+            measurementId: "G-JZ9ZEGVG1Q"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        </script>
+
+    </body>
+</html>

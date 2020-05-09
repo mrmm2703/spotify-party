@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+        <title>
+            Admin
+        </title>
+        <style>
+            td, th {
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+
+            html {
+                background-color: black;
+                color: white;
+                font-family: sans-serif;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Spotify Party Admin Interface</h1>
+        <table id="user_table">
+            <tr>
+                <th>Profile Pic</th>
+                <th>Party Code</th>
+                <th>Spotify Name</th>
+                <th>Chosen Name</th>
+                <th>Profile URI</th>
+                <th>Premium</th>
+                <th>Time Joined</th>
+                <th>Kick</th>
+                <th>Block</th>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <br>
+        <div id="blocked_table_container">
+            <!-- <table id="blocked_table">
+                <tr>
+                    <th>Spotify URI</th>
+                    <th>Unblock</th>
+                </tr>
+            </table> -->
+        </div>
+        <script src="admin.js"></script>
+    </body>
+</html>
