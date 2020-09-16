@@ -1,4 +1,4 @@
-var socket = io.connect("https://fourone.ddns.net:3000")
+var socket = io.connect("https://morahman.me:3000")
 socket.emit("iadmin", {})
 socket.emit("admin_init", {})
 socket.emit("blocked_users_init", {})

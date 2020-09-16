@@ -12,12 +12,12 @@
         gtag('config', 'UA-165349897-1');
         </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
-        <script src="https://fourone.ddns.net:3000/jquery.js"></script>
+        <script src="https://morahman.me:3000/jquery.js"></script>
         <script
         src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
         integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
         crossorigin="anonymous"></script>
-        <link rel="stylesheet" type="text/css" href="https://fourone.ddns.net:3000/style.css">
+        <link rel="stylesheet" type="text/css" href="https://morahman.me:3000/style.css">
     </head>
     <body>
         <script src="https://sdk.scdn.co/spotify-player.js"></script>
@@ -34,7 +34,7 @@
                 window.player.addListener('initialization_error', ({ message }) => { console.error(message) })
                 window.player.addListener('authentication_error', ({ message }) => {
                     console.error(message)
-                    // window.location.replace("https://accounts.spotify.com/authorize?client_id=d7bc09b9fc624ecfb3345d126c96f61f&redirect_uri=https:%2F%2Ffourone.ddns.net:3000&response_type=token&scope=streaming%20user-read-email%20user-modify-playback-state%20user-read-private&show_dialog=true")
+                    // window.location.replace("https://accounts.spotify.com/authorize?client_id=d7bc09b9fc624ecfb3345d126c96f61f&redirect_uri=https:%2F%2Fmorahman.me:3000&response_type=token&scope=streaming%20user-read-email%20user-modify-playback-state%20user-read-private&show_dialog=true")
                 })
                 window.player.addListener('account_error', ({ message }) => { console.error(message) })
                 window.player.addListener('playback_error', ({ message }) => { console.error(message) })

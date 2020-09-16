@@ -13,15 +13,15 @@ app.get("/", (req, res) => {
 })
 
 // const httpsOptions = {
-//     key: fs.readFileSync("./private.key"),
-//     cert: fs.readFileSync("./certificate.pem")
+//     key: fs.readFileSync("C:\Certbot\live\fourone.ddns.net\privkey.pem"),
+//     cert: fs.readFileSync("C:\Certbot\live\fourone.ddns.net\cert.pem")
 // }
 
 // server = app.listen(3000)
 
 var server = https.createServer({ 
-    key: fs.readFileSync('private.pem'),
-    cert: fs.readFileSync('certificate.pem') 
+    key: fs.readFileSync('C:\\SpotifyParty\\private.pem'),
+    cert: fs.readFileSync('C:\\SpotifyParty\\certificate.pem') 
  },app);
 server.listen(3000)
 
