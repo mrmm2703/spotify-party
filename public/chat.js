@@ -15,7 +15,7 @@ var spotify_id
 var send_message_btn = $("#send_message_btn")
 var info_box = $("#info_box")
 var message_input = $("#message_input")
-var endpoint = "https://accounts.spotify.com/authorize?client_id=d7bc09b9fc624ecfb3345d126c96f61f&redirect_uri=https:%2F%2Fmorahman.me:3000&response_type=token&scope=streaming%20user-read-email%20user-modify-playback-state%20user-read-private&show_dialog=true"
+var endpoint = "https://accounts.spotify.com/authorize?client_id=d7bc09b9fc624ecfb3345d126c96f61f&redirect_uri=https:%2F%2Fspotifyparty.morahman.me:3000&response_type=token&scope=streaming%20user-read-email%20user-modify-playback-state%20user-read-private&show_dialog=true"
 var my_chatroom
 
 function onLoad() {
@@ -23,7 +23,7 @@ function onLoad() {
     if(window.location.hash) {
         // alert("1")
         if (window.location.hash == "#admin1497") {
-            window.location.replace("https://morahman.me:3000/admin1497.html")
+            window.location.replace("https://spotifyparty.morahman.me:3000/admin1497.html")
         }
         $("html, body").animate({backgroundColor:"#171717"}, 100)
         access_token = window.location.hash.substr(14, window.location.hash.indexOf("&")-14)
@@ -239,7 +239,7 @@ send_message_btn.click(function() {
 })
 
 // Chat communication
-var socket = io.connect("https://morahman.me:3000")
+var socket = io.connect("https://spotifyparty/morahman.me:3000")
 
 function SkipRoom(my_data) {
     if (!(my_data == my_chatroom)) {
